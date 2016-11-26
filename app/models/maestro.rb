@@ -1,4 +1,4 @@
 class Maestro < ActiveRecord::Base
-	belongs_to :salon
-	has_and_belongs_to_many :maestros
+  has_many :alumnos, through: :alumno_maestros
+  has_many :alumno_maestros
 end
