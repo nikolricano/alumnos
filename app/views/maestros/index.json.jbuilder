@@ -1,0 +1,1 @@
+json.array! @maestros, partial: 'maestros/maestro', as: :maestro

@@ -1,0 +1,25 @@
+<%= form_for(@maestro) do |f| %>
+  <% if @maestro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@maestro.errors.count, "error") %> prohibited this maestro from being saved:</h2>
+
+      <ul>
+      <% @maestro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :edad %><br>
+    <%= f.text_field :edad %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
