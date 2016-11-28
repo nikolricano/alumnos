@@ -1,0 +1,1 @@
+json.partial! "maestros/maestro", maestro: @maestro

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Maestros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @maestros.each do |maestro| %>
+      <tr>
+        <td><%= maestro.nombre %></td>
+        <td><%= maestro.edad %></td>
+        <td><%= link_to 'Vincular con salon', vincular_con_salon_path(maestro.id) %></td>
+        <td><%= link_to 'Show', maestro %></td>
+        <td><%= link_to 'Edit', edit_maestro_path(maestro) %></td>
+        <td><%= link_to 'Destroy', maestro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Maestro', new_maestro_path %>
