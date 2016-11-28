@@ -1,0 +1,26 @@
+<div>
+  <%= flash[:alert] %>
+</div>
+<h1>El maestro <%= @maestro.nombre %></h1>
+<p>Listado de Salones ya vinculados</p>
+<ul>
+  <% @maestro.salons.each do |salons| %>
+    <li><%= salons.nombre %>
+      <td><%= link_to 'Eliminar', quitar_salon_path(@maestro.id, salons.id), method: :delete, data: { confirm: 'Seguro que desea borrarlo?' } %></td>
+     </li>
+  <% end %>
+</ul>
+<p>Vinculaciones disponibles</p>
+<% cad = '' %>
+<% salones_disponibles.each do |salon| %>
+  <% cad << "<option value='#{salon.id}'>#{salon.nombre}</option>" %>
+<% end %>
+<%= form_for(@maestro, url: maestros_vincular_path, method: 'post' ) do |f| %>
+  <p>
+  <%= hidden_field_tag 'maestro', @maestro.id %>
+  <%= select_tag "salon", cad.html_safe %>
+  </p>
+  <%= f.submit 'Asignar salon' %>
+  <%= f.submit 'Cancelar' %>
+<% end %>
+</form>

@@ -16,6 +16,7 @@
       <tr>
         <td><%= maestro.nombre %></td>
         <td><%= maestro.edad %></td>
+        <td><%= link_to 'Vincular con salon', vincular_con_salon_path(maestro.id) %></td>
         <td><%= link_to 'Show', maestro %></td>
         <td><%= link_to 'Edit', edit_maestro_path(maestro) %></td>
         <td><%= link_to 'Destroy', maestro, method: :delete, data: { confirm: 'Are you sure?' } %></td>

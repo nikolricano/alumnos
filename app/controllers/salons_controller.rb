@@ -1,8 +1,22 @@
+ 
 class SalonsController < ApplicationController
   before_action :set_salon, only: [:show, :edit, :update, :destroy]
 
+  def vincular_alumno
+  end
+
+  def vincular
+  end
+
+  def quitar_alumno
+  end
+
   # GET /salons
   # GET /salons.json
+  # 
+  def salons
+  end
+
   def index
     @salons = Salon.all
   end
@@ -69,6 +83,6 @@ class SalonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def salon_params
-      params.require(:salon).permit(:nombre, :direccion)
+      params.require(:salon).permit(:nombre, :alumno_id)
     end
 end
